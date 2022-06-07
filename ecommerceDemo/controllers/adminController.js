@@ -26,6 +26,11 @@ export default class AdminController {
         res.render("admin/sighup")
     }
     async addAdmin(req,res){
+        const email=req.body.email;
+        if(email){
+            res.json("email already exists")
+        }
+        else{
         try {
             const data=await adminModel.create({...req.body});
             // res.json(data)
@@ -35,6 +40,7 @@ export default class AdminController {
                 "message":error
             })
         }
+    }
     }
 
     async deleteProduct(req,res){
