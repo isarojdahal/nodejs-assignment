@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+
+        <div class="d-flex justify-content-between mt-4 mb-2">
+          <div><h2> <a href="/admin" style="text-decoration:none;">e-Commerce Admin</a></h2></div>
+            <div class="text text-success"> <a href="/admin/logout" class="text text-danger">Logout</a></div>
+
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+          <div><a href="/admin/addProduct" class="btn btn-success">Add Product</a></div>
+      </div>
+        
+        <hr class="mt-2 mb-5">
+        <div class="d-flex justify-content-between mt-4">
+            <div class="text text-primary h2">List of Users</div>
+            <div class="text text-info h2">List of Products</div>
+        </div>
+        <div class="row">
+          <div class="col bg-danger d-flex justify-content-center">
+            <table class="table table-dark table-striped mt-3">
+              <thead>
+                <tr style="width: 100%;">
+                  <th scope="col">Product ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col" colspan="2" class="text-center">Actions</th>
+                  </tr>
+            </thead>
+            <tbody>
+              <% if(prod.length){
+                for(var i=0;i<prod.length;i++) { %>
+                <tr>
+                  <td><%=prod[i].id %></td>
+                  <td><%=prod[i].name %></td>
+                  <td><%=prod[i].price %></td>
+                  <td><a href="/admin/deleteProduct/<%=prod[i].id%>" class="btn btn-danger">Delete</a></td>
+                  <td><a href="/admin/updateProduct/<%=prod[i].id%>" class="btn btn-primary">Edit</a></td>
+                </tr>
+            <% } } %>              
+            </tbody>
+            </table>
+          </div>
+        </div>
+    </div>    
+    
+</body>
+</html>
