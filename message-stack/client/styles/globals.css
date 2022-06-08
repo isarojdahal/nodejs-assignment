@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    scroll-behavior: smooth;
+}
+
+.button-effect{
+   @apply transition duration-300 outline-none focus-within:ring-1 hover:ring-1 hover:ring-gray-600/30 focus-within:ring-gray-600/30;
+}
